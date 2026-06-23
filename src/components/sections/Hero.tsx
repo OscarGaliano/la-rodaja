@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowRight, BadgeCheck } from "lucide-react";
-import { BrandLockup } from "@/components/brand/BrandLockup";
+import { HeroLogo } from "@/components/brand/HeroLogo";
 import { ProductTicker } from "@/components/sections/ProductTicker";
 import { brand } from "@/lib/brand";
 import { IMAGE_QUALITY } from "@/lib/images";
@@ -28,11 +28,11 @@ export function Hero() {
         style={{ background: "#0D0D0D" }}
       >
         <div
-          className={`relative z-10 flex min-h-0 flex-1 flex-col justify-end pb-8 pt-20 sm:justify-center sm:pb-12 sm:pt-24 lg:min-h-[100svh] lg:w-[58%] lg:shrink-0 lg:justify-center lg:pb-0 lg:pt-0 ${PAGE_ALIGN_LEFT}`}
+          className={`relative z-10 flex min-h-0 flex-1 flex-col justify-end pb-8 pt-28 sm:justify-center sm:pb-12 sm:pt-32 lg:min-h-[100svh] lg:w-[58%] lg:shrink-0 lg:justify-center lg:pb-0 lg:pt-28 ${PAGE_ALIGN_LEFT}`}
         >
           <div className="max-w-2xl">
-              <div className="mb-5 sm:mb-7">
-                <BrandLockup variant="hero" linked={false} priority />
+              <div className="mb-5 mt-2 sm:mb-7 sm:mt-3">
+                <HeroLogo />
               </div>
 
               <div className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/6 px-3.5 py-1.5 backdrop-blur-sm sm:mb-8 sm:px-4 sm:py-2">
