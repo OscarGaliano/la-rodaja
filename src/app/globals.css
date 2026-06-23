@@ -68,6 +68,68 @@ body {
   scrollbar-width: none;
 }
 
+@keyframes logo-float-header {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes logo-float-hero {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes logo-glow-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+.logo-alive-header {
+  animation: logo-float-header 5s ease-in-out infinite;
+}
+
+.logo-alive-hero {
+  animation: logo-float-hero 4.5s ease-in-out infinite;
+}
+
+.logo-alive-glow {
+  background: radial-gradient(
+    circle,
+    rgba(168, 214, 0, 0.28) 0%,
+    rgba(255, 216, 77, 0.12) 45%,
+    transparent 72%
+  );
+  animation: logo-glow-breathe 4s ease-in-out infinite;
+}
+
+.logo-alive-hero .logo-alive-glow {
+  animation-duration: 3.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-alive-header,
+  .logo-alive-hero,
+  .logo-alive-glow {
+    animation: none;
+  }
+}
+
 @keyframes hero-marquee {
   from {
     transform: translateX(0);

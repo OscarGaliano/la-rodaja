@@ -2,15 +2,16 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { LogoMark } from "@/components/brand/LogoMark";
+import { AnimatedLogo } from "@/components/brand/AnimatedLogo";
 import { LOGO_SRC } from "@/lib/brand-assets";
 import { cn } from "@/lib/utils";
 
 type BrandLockupProps = {
-  variant?: "header" | "footer" | "full";
+  variant?: "header" | "hero" | "footer" | "full";
   className?: string;
   linked?: boolean;
   priority?: boolean;
+  scrolled?: boolean;
 };
 
 export function BrandLockup({
@@ -18,7 +19,31 @@ export function BrandLockup({
   className,
   linked = true,
   priority = false,
+  scrolled = false,
 }: BrandLockupProps) {
+  if (variant === "header") {
+    return (
+      <AnimatedLogo
+        size="header"
+        linked={linked}
+        priority={priority}
+        scrolled={scrolled}
+        className={className}
+      />
+    );
+  }
+
+  if (variant === "hero") {
+    return (
+      <AnimatedLogo
+        size="hero"
+        linked={linked}
+        priority={priority}
+        className={className}
+      />
+    );
+  }
+
   if (variant === "full" || variant === "footer") {
     const image = (
       <Image
@@ -44,28 +69,5 @@ export function BrandLockup({
     );
   }
 
-  const lockup = (
-    <div className={cn("flex items-center gap-3", className)}>
-      <LogoMark className="h-9 w-[4.1rem] shrink-0 drop-shadow-sm" />
-      <span
-        className="text-[1.15rem] font-bold italic tracking-tight"
-        style={{
-          background: "linear-gradient(180deg, #B8E600 0%, #5A8F00 100%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-        }}
-      >
-        La Rodaja
-      </span>
-    </div>
-  );
-
-  if (!linked) return lockup;
-
-  return (
-    <Link href="/" className="inline-flex transition-opacity hover:opacity-90">
-      {lockup}
-    </Link>
-  );
+  return null;
 }

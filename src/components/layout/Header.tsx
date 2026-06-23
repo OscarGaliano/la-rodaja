@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { LogoMark } from "@/components/brand/LogoMark";
+import { BrandLockup } from "@/components/brand/BrandLockup";
 import { useScrolled } from "@/hooks/useScrolled";
 import { brand } from "@/lib/brand";
 import { PAGE_CONTAINER } from "@/lib/layout";
@@ -30,31 +29,7 @@ export function Header() {
       }`}
     >
       <div className={`${PAGE_CONTAINER} flex h-16 items-center justify-between gap-4`}>
-        <Link
-          href="/"
-          className="group flex shrink-0 items-center gap-2.5 transition-opacity hover:opacity-90"
-        >
-          <span
-            className="flex h-10 w-10 items-center justify-center rounded-full shadow-md ring-2 ring-white/15"
-            style={{ background: brand.lemon }}
-          >
-            <LogoMark className="h-6 w-[2.65rem]" />
-          </span>
-          <span
-            className={`hidden text-[15px] font-bold tracking-tight transition-colors duration-300 sm:block ${
-              scrolled ? "text-[#0D0D0D]" : "text-white"
-            }`}
-            style={
-              scrolled
-                ? undefined
-                : {
-                    textShadow: "0 1px 12px rgba(0,0,0,0.35)",
-                  }
-            }
-          >
-            La Rodaja
-          </span>
-        </Link>
+        <BrandLockup variant="header" scrolled={scrolled} priority />
 
         <nav className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => (
