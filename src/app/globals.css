@@ -1,0 +1,218 @@
+@import "tailwindcss" source(none);
+@source "../**/*.{js,ts,jsx,tsx,mdx}";
+
+:root {
+  --background: #f4f2ec;
+  --foreground: #111111;
+  --cream: #f4f2ec;
+  --surface: #fdfcf9;
+  --surface-muted: #ebe8e1;
+  --muted: #ebe8e1;
+  --muted-foreground: #6b6b6b;
+  --lime: #a8d600;
+  --lemon: #ffd84d;
+  --black: #111111;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-cream: var(--cream);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.font-nav {
+  font-family: var(--font-nav), var(--font-inter), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  overflow-x: hidden;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes hero-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-33.33%);
+  }
+}
+
+.hero-marquee {
+  animation: hero-marquee 28s linear infinite;
+}
+
+.group:hover .hero-marquee {
+  animation-play-state: paused;
+}
+
+.hero-marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+}
+
+/* ─── La Rodaja loader ───────────────────────────────────── */
+@keyframes loader-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loader-ring-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loader-segment-pop {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes loader-bar-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(420%);
+  }
+}
+
+.loader-breathe {
+  animation: loader-breathe 2.2s ease-in-out infinite;
+}
+
+.loader-ring {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    #a8d600 90deg,
+    #ffd84d 180deg,
+    #ff8c42 270deg,
+    transparent 360deg
+  );
+  opacity: 0.35;
+  animation: loader-ring-spin 3s linear infinite;
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+}
+
+.loader-glow {
+  background: radial-gradient(circle, rgba(168, 214, 0, 0.18) 0%, transparent 70%);
+  animation: loader-glow-pulse 2.2s ease-in-out infinite;
+}
+
+.loader-segment {
+  animation: loader-segment-pop 1.2s ease-in-out infinite;
+}
+
+.loader-bar {
+  animation: loader-bar-slide 1.1s ease-in-out infinite;
+}
+
+.calc-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: #e8e5de;
+  outline: none;
+}
+
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #111111;
+  border: 3px solid #a8d600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(17, 17, 17, 0.15);
+}
+
+.calc-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #111111;
+  border: 3px solid #a8d600;
+  cursor: pointer;
+}
